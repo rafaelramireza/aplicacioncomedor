@@ -33,8 +33,11 @@
                     <label for="" class="form-label">Alimentos:</label>
                     <select multiple class="form control" name="alimentos[]" id="listaAlimentos">
                         <option>Selecciona una opción</option>
-                        <option>Alimento 1</option>
-                        <option>Alimento 2</option>
+                        
+                        <?php foreach( $cursos as $curso  ) { ?>
+                        <option> <?php echo $curso['id'];  ?> - <?php echo $curso['nombre_alimento'];  ?>  </option>
+                        <?php } ?>
+
                     </select>
                 </div>
 
