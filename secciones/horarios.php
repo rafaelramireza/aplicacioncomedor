@@ -27,6 +27,15 @@ $sql = "SELECT * FROM horarios";
 $listaHorarios=$conexionBD->query($sql);
 $horarios=$listaHorarios->fetchAll();
 
+foreach($horarios as $clave => $horario){
+    $sql="SELECT * FROM alimentos WHERE id IN (SELECT idalimento FROM horarios_alimentos WHERE idhorario=:idhorario)";
+    $consulta=$conexionBD->prepare($sql);
+    $consulta->bindParam(':idhorario',$horario['id']);
+    $consulta->execute();
+    $alimentosHorario=$consulta->fetchAll();
+    $horarios[$clave]['alimentos']=$alimentosHorario;
+}   
+
 print_r($horarios);
 
 ?>

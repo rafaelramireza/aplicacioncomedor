@@ -69,7 +69,10 @@
                     <?php foreach($horarios as $horario): ?>
                     <tr>
                         <td><?php echo $horario['id'];?></td>
-                        <td><?php echo $horario['nombre'];?> <?php echo $horario['atencion'];?></td>
+                        <td>
+                            <?php echo $horario['nombre'];?> <?php echo $horario['atencion'];?>
+                            <?php print_r($horario["alimentos"]);?>
+                        </td>
                         <td>Seleccionar</td>
                     </tr>
                     <?php endforeach; ?>
