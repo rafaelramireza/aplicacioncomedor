@@ -33,15 +33,12 @@
                     <label for="" class="form-label">Alimentos:</label>
                     <select multiple class="form control" name="alimentos[]" id="listaAlimentos">
                         <option>Selecciona una opción</option>
-                        
-                        <?php foreach( $cursos as $curso  ) { ?>
-                        <option> <?php echo $curso['id'];  ?> - <?php echo $curso['nombre_alimento'];  ?>  </option>
-                        <?php } ?>
-
-                    </select>
+                        <option>Alimento 1</option>
+                        <option>Alimento 2</option>
+                        </select>
                 </div>
 
-                <div class="btn-group" role="group" aria-label="Button group name">
+                <div class="btn-group" role="group" aria-label="">
                     <button type="submit" name="accion" value="agregar" class="btn btn-success">Agregar</button>
                     <button type="submit" name="accion" value="editar" class="btn btn-primary">Editar</button>
                     <button type="submit" name="accion" value="borrar" lass="btn btn-danger">Borrar</button>
@@ -67,20 +64,25 @@
                 </thead>
                 <tbody>
                     <?php foreach($horarios as $horario): ?>
-                    <tr>
-                        <td><?php echo $horario['id'];?></td>
-                        <td>
-                            <?php echo $horario['nombre'];?> <?php echo $horario['atencion'];?>
-                            <?php print_r($horario["alimentos"]);?>
-                        </td>
-                        <td>Seleccionar</td>
-                    </tr>
+                        <tr>
+                            <td><?php echo $horario['id'];?></td>
+                            <td>
+                                <?php echo $horario['nombre'];?> <?php echo $horario['atencion'];?>
+                                <br/>
+                                <?php foreach($horario["alimentos"] as $alimento){ ?>
+                                    - <a href="#"> <?php echo $alimento["nombre_alimento"]; ?>  <a/> <br/>
+                                       
+                                    
+                                <?php } ?>
+
+                            </td>
+                            <td>Seleccionar</td>
+                        </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
     </div>
         
-
 </div>
 
 <?php include('../templates/pie.php'); ?>
