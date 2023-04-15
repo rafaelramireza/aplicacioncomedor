@@ -77,7 +77,14 @@
                                     - <a href="#"> <?php echo $alimento["nombre_alimento"]; ?>  <a/> <br/>                               
                                 <?php } ?>
                             </td>
-                            <td>Seleccionar</td>
+                            <td>
+                            <form action="" method="post">
+                                <input type="hidden" name="id" value="<?php echo $horario['id'];?>">
+                                <input type="submit" value="Seleccionar" name="accion" class="btn btn-info">
+                            </form>
+
+
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

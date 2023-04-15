@@ -28,6 +28,11 @@ if($accion!=""){
             }
 
         break;
+
+        case 'Seleccionar':
+            echo "Presionaste Seleccionar";
+            echo $id;
+        break;
     }
 }
 
@@ -51,5 +56,4 @@ $sql="SELECT * FROM alimentos";
 $listaAlimentos=$conexionBD->query($sql);
 $alimentos=$listaAlimentos->fetchAll();
 
-print_r($alimentos);
 ?>
