@@ -14,19 +14,19 @@
                     <div class="mb-3">
                       <label for="id" class="form-label">ID</label>
                       <input type="text"
-                        class="form-control" name="id" id="id" aria-describedby="helpId" placeholder="ID">
+                        class="form-control" name="id" value="<?php echo $id;?>" id="id" aria-describedby="helpId" placeholder="ID">
                 </div>
 
                 <div class="mb-3">
                   <label for="nombre" class="form-label">Nombre</label>
                   <input type="text"
-                    class="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="Escriba el nombre">
+                    class="form-control" name="nombre" value="<?php echo $nombre;?>" id="nombre" aria-describedby="helpId" placeholder="Escriba el nombre">
                 </div>
 
                 <div class="mb-3">
                   <label for="atencion" class="form-label">Atencion</label>
                   <input type="text"
-                    class="form-control" name="atencion" id="atencion" aria-describedby="helpId" placeholder="Escriba el horario de atención">
+                    class="form-control" name="atencion" value="<?php echo $atencion;?>" id="atencion" aria-describedby="helpId" placeholder="Escriba el horario de atención">
                 </div>
 
                 <div class="mb-3">

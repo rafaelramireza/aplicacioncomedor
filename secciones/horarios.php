@@ -30,8 +30,18 @@ if($accion!=""){
         break;
 
         case 'Seleccionar':
+            
             echo "Presionaste Seleccionar";
-            echo $id;
+            
+            $sql="SELECT * FROM horarios WHERE id=:id";
+            $consulta=$conexionBD->prepare($sql);
+            $consulta->bindParam(':id',$id);
+            $consulta->execute();
+            $horario=$consulta->fetch(PDO::FETCH_ASSOC);
+
+            $nombre=$horario['nombre'];
+            $atencion=$horario['atencion'];
+            
         break;
     }
 }
