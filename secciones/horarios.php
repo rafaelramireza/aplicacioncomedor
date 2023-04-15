@@ -41,6 +41,21 @@ if($accion!=""){
 
             $nombre=$horario['nombre'];
             $atencion=$horario['atencion'];
+
+            $sql="SELECT alimentos.id FROM horarios_alimentos
+            INNER JOIN alimentos ON alimentos.id=horarios_alimentos.idalimento
+            WHERE horarios_alimentos.idhorario=:idhorario";
+
+            $consulta=$conexionBD->prepare($sql);
+            $consulta->bindParam(':idhorario',$id);
+            $consulta->execute();
+            $alimentosHorario=$consulta->fetchAll(PDO::FETCH_ASSOC);
+            
+            print_r($alimentosHorario);
+
+            foreach($alimentosHorario as $alimento){
+                $arregloAlimentos[]=$alimento['id'];
+            }
             
         break;
     }
