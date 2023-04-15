@@ -18,6 +18,15 @@ if($accion!=""){
             $consulta->bindParam(':atencion',$atencion);
             $consulta->execute();
             $idHorario=$conexionBD->lastInsertId();
+            
+            foreach($alimetos as $alimento){
+                $sql="INSERT INTO horarios_alimentos (id, idhorario, idalimento) VALUES (NULL, :idhorario, :idalimento)";
+                $consulta=$conexionBD->prepare($sql);
+                $consulta->bindParam(':idhorario',$idHorario);
+                $consulta->bindParam(':idalimento',$alimento);
+                $consulta->execute();
+            }
+
         break;
     }
 }
@@ -38,6 +47,9 @@ foreach($horarios as $clave => $horario){
     $horarios[$clave]['alimentos']=$alimentosHorario;
 }   
 
-print_r($horarios);
+$sql="SELECT * FROM alimentos";
+$listaAlimentos=$conexionBD->query($sql);
+$alimentos=$listaAlimentos->fetchAll();
 
+print_r($alimentos);
 ?>

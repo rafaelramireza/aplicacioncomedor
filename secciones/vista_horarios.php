@@ -31,11 +31,15 @@
 
                 <div class="mb-3">
                     <label for="" class="form-label">Alimentos:</label>
+
                     <select multiple class="form control" name="alimentos[]" id="listaAlimentos">
                         <option>Selecciona una opción</option>
-                        <option>Alimento 1</option>
-                        <option>Alimento 2</option>
-                        </select>
+
+                        <?php foreach($alimentos as $alimento){ ?>
+                            <option value="<?php echo $alimento['id'];?>" ><?php echo $alimento['id'];?> - <?php echo $alimento['nombre_alimento']; ?></option>
+                        <?php } ?>
+                    </select>
+                
                 </div>
 
                 <div class="btn-group" role="group" aria-label="">
