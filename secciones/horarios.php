@@ -58,6 +58,13 @@ if($accion!=""){
             }
             
         break;
+
+        case 'borrar':
+            $sql="DELETE FROM horarios WHERE id=:id";
+            $consulta=$conexionBD->prepare($sql);
+            $consulta->bindParam(':id',$id);
+            $consulta->execute();
+        break;
     }
 }
 
