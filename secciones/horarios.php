@@ -65,6 +65,14 @@ if($accion!=""){
             $consulta->bindParam(':id',$id);
             $consulta->execute();
         break;
+
+        case 'editar':
+            $sql="UPDATE horarios SET nombre=:nombre, atencion=:atencion WHERE id=:id";
+            $consulta=$conexionBD->prepare($sql);
+            $consulta->bindParam(':nombre',$nombre);
+            $consulta->bindParam(':atencion',$atencion);
+            $consulta->bindParam(':id',$id);
+            $consulta->execute();
     }
 }
 
