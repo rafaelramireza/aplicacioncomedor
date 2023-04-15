@@ -70,11 +70,8 @@
                                 <?php echo $horario['nombre'];?> <?php echo $horario['atencion'];?>
                                 <br/>
                                 <?php foreach($horario["alimentos"] as $alimento){ ?>
-                                    - <a href="#"> <?php echo $alimento["nombre_alimento"]; ?>  <a/> <br/>
-                                       
-                                    
+                                    - <a href="#"> <?php echo $alimento["nombre_alimento"]; ?>  <a/> <br/>                               
                                 <?php } ?>
-
                             </td>
                             <td>Seleccionar</td>
                         </tr>
