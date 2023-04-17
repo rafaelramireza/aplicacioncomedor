@@ -1,14 +1,13 @@
 <?php 
 session_start(); 
 if($_POST){
-  if($_POST['usuario'] == 'admin' && $_POST['contrasenia'] == 'admin'){
-    $_SESSION['username'] = 'admin';
-   header('Location: secciones/index.php');
-  }else{
 
-    $mensaje = 'Usuario o contraseña incorrectos';
-  }
+  $mensaje = 'Usuario o contraseña incorrectos';
   
+  if($_POST['usuario'] == 'admin' && $_POST['contrasenia'] == 'admin'){
+    $_SESSION['usuario']=$_POST['usuario'];
+   header('Location: secciones/index.php');
+  }
 }
 
 ?>
@@ -32,13 +31,11 @@ if($_POST){
 <form action="" method="post">
                     <div class="card-header">   Inicio se sesión    </div>
                 <div class="card-body">
-                  
                 <?php if(isset($mensaje)) {?>
                         <div class="alert alert-danger" role="alert">
                             <?php echo $mensaje; ?>
                         </div>
                     <?php } ?>
-                  
                 <div class="mb-3">
                   <label for="usuario" class="form-label">Usuario</label>
                   <input type="text"
