@@ -66,13 +66,32 @@ if($accion!=""){
             $consulta->execute();
         break;
 
-        case 'editar':
+        case "editar":
             $sql="UPDATE horarios SET nombre=:nombre, atencion=:atencion WHERE id=:id";
             $consulta=$conexionBD->prepare($sql);
             $consulta->bindParam(':nombre',$nombre);
             $consulta->bindParam(':atencion',$atencion);
             $consulta->bindParam(':id',$id);
             $consulta->execute();
+
+            if(isset($alimentos)){
+
+                $sql="DELETE FROM horarios_alimentos WHERE idhorario=:idhorario"; 
+                $consulta=$conexionBD->prepare($sql);
+                $consulta->bindParam(':idhorario',$id);
+                $consulta->execute();
+                
+                foreach($alimentos as $alimento){
+                
+                $sql="INSERT INTO horarios_alimentos (id, idhorario, idalimento)
+                VALUES (NULL,:idhorario, :idalimento)";
+                $consulta=$conexionBD->prepare($sql);
+                $consulta->bindParam(':idhorario',$id);
+                $consulta->bindParam(':idalimento', $alimento);
+                $consulta->execute();
+                }
+                $arregloAlimentos=$alimentos;
+                }
     }
 }
 

@@ -53,15 +53,15 @@
 
                 <div class="btn-group" role="group" aria-label="">
                     <button type="submit" name="accion" value="agregar" class="btn btn-success">Agregar</button>
-                    <button type="submit" name="accion" value="editar" class="btn btn-primary">Editar</button>
-                    <button type="submit" name="accion" value="borrar" lass="btn btn-danger">Borrar</button>
+                    <button type="submit" name="accion" value="editar" class="btn btn-warning">Editar</button>
+                    <button type="submit" name="accion" value="borrar" class="btn btn-danger">Borrar</button>
                 </div>
 
 
                 </div>
-                <div class="card-footer text-muted">
+                
                 </div>
-            </div>
+            
 
         </form>
     </div>
